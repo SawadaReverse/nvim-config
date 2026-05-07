@@ -6,3 +6,5 @@ vim.opt.spelllang = { "en", "cjk" }
 vim.opt.spelloptions = "camel"
 vim.opt.relativenumber = false
 
+vim.g.lazyvim_eslint_auto_format = true
+

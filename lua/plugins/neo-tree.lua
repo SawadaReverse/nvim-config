@@ -1,6 +1,10 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = {
+    window = {
+      position = "left",
+      width = 30,
+    },
     -- git 変更ファイルを黄色で表示
     event_handlers = {
       {

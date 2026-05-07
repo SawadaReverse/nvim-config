@@ -13,7 +13,9 @@ return {
               require("telescope.actions").select_default:replace(function()
                 local entry = require("telescope.actions.state").get_selected_entry()
                 require("telescope.actions").close(prompt_bufnr)
-                vim.cmd("cd " .. entry[1])
+                vim.cmd("tabnew")
+                vim.cmd("tcd " .. entry[1])
+                vim.cmd("Neotree dir=" .. entry[1])
                 vim.notify("Switched to " .. entry[1])
               end)
               return true
