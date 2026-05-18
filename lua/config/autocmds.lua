@@ -17,3 +17,30 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "BufEnter" }, {
     end
   end,
 })
+
+-- ts, tsx バッファで <leader>cD を LspEslintFixAll に上書き
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("eslint_fix_all_keymap", { clear = true }),
+  pattern = { "typescript", "typescriptreact" },
+  callback = function(args)
+    vim.keymap.set("n", "<leader>cD", function()
+      vim.cmd("LspEslintFixAll")
+      LazyVim.format({ force = true })
+    end, {
+      buffer = args.buf,
+      desc = "ESLint Fix All + Format",
+    })
+  end,
+})
+
+-- ts, tsx 保存時に LspEslintFixAll + format を実行
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("eslint_fix_all_on_save", { clear = true }),
+  pattern = { "*.ts", "*.tsx" },
+  callback = function()
+    if vim.fn.exists(":LspEslintFixAll") > 0 then
+      vim.cmd("LspEslintFixAll")
+    end
+    LazyVim.format({ force = true })
+  end,
+})

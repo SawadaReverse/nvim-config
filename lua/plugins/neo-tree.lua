@@ -5,6 +5,13 @@ return {
       position = "left",
       width = 30,
     },
+    filesystem = {
+      filtered_items = {
+        visible = true,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      },
+    },
     -- git 変更ファイルを黄色で表示
     event_handlers = {
       {
