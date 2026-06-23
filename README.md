@@ -1,5 +1,8 @@
 # nvim-config
 
+> [!NOTE]
+> nvim の設定は、環境構築時にインストールされてほしいなと思ったので、 <https://github.com/SawadaReverse/dotfiles> へ移行した
+
 [LazyVim](https://www.lazyvim.org/) ベースの Neovim 設定。
 
 ## 必要なもの
